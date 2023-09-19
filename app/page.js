@@ -10,20 +10,6 @@ export default function Home() {
   // Declare a state variable called "inputMessage" and initialize it with an empty string
   const [inputMessage, setInputMessage] = useState('');
 
-  // // Use the useEffect hook to update the messages array with the initial conversation
-  // useEffect(() => {
-  //   setMessages([
-  //     {
-  //       sender: 'user',
-  //       message: 'Hello',
-  //     },
-  //     {
-  //       sender: 'bot',
-  //       message: 'Hi, how are you?',
-  //     },
-  //   ]);
-  // }, []);
-
   // Function to handle the sending of messages when the user presses the Enter key
   const handleSendMessage = (e) => {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
