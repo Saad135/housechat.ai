@@ -6,7 +6,7 @@ export default function ChatBox({
 }) {
   // Render the main div and its contents, including the messages and input field
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800 p-10">
+    <div className="flex flex-col items-center justify-center min-h-screen text-gray-800 p-10">
       <div
         className={`flex flex-col ${
           messages.length == 0 ? '' : 'flex-grow'

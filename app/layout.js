@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           src="https://gradio.s3-us-west-2.amazonaws.com/{3.44.3}/gradio.js"
         ></script>
       </Head>
-      <body>{children}</body>
+      <body className="bg-gray-100">{children}</body>
     </html>
   );
 }
