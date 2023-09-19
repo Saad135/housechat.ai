@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import ChatBox from './chatbox';
 import Link from 'next/link';
+import PropertyDetails from './property-details';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array
@@ -49,9 +50,7 @@ export default function Home() {
           </a>
         ))}
       </div>
-      <div hidden={!selectedProperty} className="flex-grow">
-        <p>{!selectedProperty ? 'test' : selectedProperty.a}</p>
-      </div>
+      <PropertyDetails selectedProperty={selectedProperty} />
       <div className={`flex-grow ${selectedProperty ? 'max-w-[30%]' : ''}`}>
         <ChatBox
           messages={messages}
