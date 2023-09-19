@@ -3,10 +3,15 @@ export default function ChatBox({
   inputMessage,
   setInputMessage,
   handleSendMessage,
+  selectedProperty,
 }) {
   // Render the main div and its contents, including the messages and input field
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-gray-800 p-10">
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen text-gray-800 ${
+        messages.length == 0 ? 'p-10' : selectedProperty != null ? '' : 'py-10'
+      }`}
+    >
       <div
         className={`flex flex-col ${
           messages.length == 0 ? '' : 'flex-grow'
@@ -18,10 +23,13 @@ export default function ChatBox({
           } p-4 overflow-auto`}
         >
           {/* Iterate over the messages array and render each message based on the sender */}
-          {messages.map((message) => {
+          {messages.map((message, idx) => {
             // If the message sender is the user, render it differently than if the sender is a bot
             return message.sender === 'user' ? (
-              <div className="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+              <div
+                key={idx}
+                className="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end"
+              >
                 <div>
                   <div className="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
                     <p className="text-sm">{message.message}</p>
@@ -30,7 +38,7 @@ export default function ChatBox({
                 <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
               </div>
             ) : (
-              <div className="flex w-full mt-2 space-x-3 max-w-xs">
+              <div key={idx} className="flex w-full mt-2 space-x-3 max-w-xs">
                 <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
                 <div>
                   <div className="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
@@ -44,6 +52,7 @@ export default function ChatBox({
         {/* Render the footer section with an input field for typing messages */}
         <div className="bg-gray-300 p-4">
           <input
+            id="botInput"
             className="flex items-center h-10 w-full rounded px-3 text-sm"
             type="text"
             placeholder="Type your message…"
