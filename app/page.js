@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ChatBox from './chatbox';
 import Link from 'next/link';
 import PropertyDetails from './property-details';
+import PropertyList from './property-list';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array
@@ -37,19 +38,10 @@ export default function Home() {
   // Render the main div and its contents, including the messages and input field
   return (
     <div className="flex">
-      <div hidden={properties.length == 0} className="p-4 min-w-[15%]">
-        {properties.map((property, idx) => (
-          <a
-            onClick={() => setselectedProperty({ a: property })}
-            href="#"
-            key={idx}
-          >
-            <div className="my-5 flex shadow-sm rounded-lg text-blue-200 items-center justify-center w-full h-20 bg-blue-800">
-              <span>{property}</span>
-            </div>
-          </a>
-        ))}
-      </div>
+      <PropertyList
+        properties={properties}
+        setselectedProperty={setselectedProperty}
+      />
       <PropertyDetails selectedProperty={selectedProperty} />
       <div className={`flex-grow ${selectedProperty ? 'max-w-[30%]' : ''}`}>
         <ChatBox

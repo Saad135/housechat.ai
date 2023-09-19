@@ -1,0 +1,17 @@
+export default function PropertyList({ properties, setselectedProperty }) {
+  return (
+    <div hidden={properties.length == 0} className="p-4 min-w-[15%]">
+      {properties.map((property, idx) => (
+        <a
+          onClick={() => setselectedProperty({ a: property })}
+          href="#"
+          key={idx}
+        >
+          <div className="my-5 flex shadow-sm rounded-lg text-blue-200 items-center justify-center w-full h-20 bg-blue-800">
+            <span>{property}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  );
+}
