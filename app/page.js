@@ -28,7 +28,7 @@ export default function Home() {
         { sender: 'bot', message: 'Nice!' },
       ]);
       // Reset the input message field
-      setproperties(['2gDwlIim3Uw', '2gDwlIim3Uw', '2gDwlIim3Uw']);
+      setproperties(['2gDwlIim3Uw', '2gDwlIim3Uw']);
       setInputMessage('');
     }
   };
