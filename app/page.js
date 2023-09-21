@@ -26,19 +26,23 @@ export default function Home() {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
     if (e.key === 'Enter' && inputMessage) {
       // Add the user's message and a bot response to the messages array
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'user', message: inputMessage },
+      ]);
+
       if (isUsingAI) {
-        setMessages([
-          ...messages,
-          { sender: 'user', message: inputMessage },
-          { sender: 'bot', message: 'AI response' },
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: 'bot', message: 'AI' },
         ]);
       } else {
-        setMessages([
-          ...messages,
-          { sender: 'user', message: inputMessage },
-          { sender: 'bot', message: 'Non-AI response' },
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: 'bot', message: 'non AI' },
         ]);
       }
+
       setproperties([
         {
           imgID: '2gDwlIim3Uw',
