@@ -2,6 +2,7 @@
 
 import Hero from '@/components/hero';
 import PropertyCard from '@/components/property-card';
+import PropertyDetails from '@/components/property-details';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
