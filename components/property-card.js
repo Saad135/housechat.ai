@@ -3,10 +3,10 @@ import Image from 'next/image';
 export default function PropertyCard({ property, setselectedProperty }) {
   return (
     <div
-      className="m-4 overflow-hidden cursor-pointer bg-white h-48 shadow-sm rounded-lg"
+      className="m-4 cursor-pointer bg-white shadow-sm rounded-lg"
       onClick={() => setselectedProperty({ a: property })}
     >
-      <div className="h-3/5 relative">
+      <div className="h-32 rounded-t-lg relative overflow-hidden">
         <Image
           src={`http://source.unsplash.com/${property}`}
           alt="A house"
@@ -14,7 +14,7 @@ export default function PropertyCard({ property, setselectedProperty }) {
           objectFit="cover"
         />
       </div>
-      <div className="px-4 pt-4">
+      <div className="px-4 py-4">
         <p className="text-blue-700 pb-2 text-xl font-medium leading-5">
           Rockford Drive
         </p>
