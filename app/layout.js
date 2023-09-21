@@ -13,13 +13,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script
-          type="module"
-          src="https://gradio.s3-us-west-2.amazonaws.com/{3.44.3}/gradio.js"
-        ></script>
-      </Head>
       <body className="bg-gray-100">
         <div className="min-h-screen flex flex-col">
           <TopBar />
