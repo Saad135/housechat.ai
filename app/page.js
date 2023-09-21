@@ -1,12 +1,7 @@
 'use client';
 
+import Hero from '@/components/hero';
 import { useEffect, useState } from 'react';
-import ChatBox from './chatbox';
-import Link from 'next/link';
-import PropertyDetails from './property-details';
-import PropertyList from './property-list';
-import Hero from './hero';
-import TopBar from './top-bar';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array

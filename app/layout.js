@@ -1,6 +1,6 @@
+import TopBar from '@/components/top-bar';
 import './globals.css';
 import Head from 'next/head';
-import TopBar from './top-bar';
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
