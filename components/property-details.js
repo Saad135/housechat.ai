@@ -6,6 +6,14 @@ export default function PropertyDetails({
   setIsUsingAI,
   setMessages,
 }) {
+  const startContact = () => {
+    setIsUsingAI((prevValue) => !prevValue);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { sender: 'bot', message: 'Please Provide us with your email.' },
+    ]);
+  };
+
   return !selectedProperty ? (
     <div hidden={!selectedProperty} className="flex-grow overflow-auto"></div>
   ) : (
@@ -22,11 +30,7 @@ export default function PropertyDetails({
         <p className="text-blue-950 font-semibold">Interested in a tour?</p>
         <button
           onClick={() => {
-            setIsUsingAI(!isUsingAI);
-            setMessages((prevMessages) => [
-              ...prevMessages,
-              { sender: 'bot', message: 'Please Provide us with your email.' },
-            ]);
+            startContact();
           }}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm"
         >

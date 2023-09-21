@@ -35,6 +35,7 @@ export default function Hero({
           selectedProperty={selectedProperty}
           isUsingAI={isUsingAI}
           setMessages={setMessages}
+          setIsUsingAI={setIsUsingAI}
         />
       </div>
     </div>

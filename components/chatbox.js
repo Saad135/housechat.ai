@@ -6,6 +6,7 @@ export default function ChatBox({
   selectedProperty,
   isUsingAI,
   setMessages,
+  setIsUsingAI,
 }) {
   // Render the main div and its contents, including the messages and input field
   const runContactFlow = (e) => {
@@ -25,6 +26,9 @@ export default function ChatBox({
             'Thank you. We have notified our team and they will contact you through your provided email as soon as possible.',
         },
       ]);
+      setIsUsingAI((prevValue) => !prevValue);
+      // Reset the input message field
+      setInputMessage('');
     }
   };
 
