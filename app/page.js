@@ -1,6 +1,7 @@
 'use client';
 
 import Hero from '@/components/hero';
+import PropertyCard from '@/components/property-card';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
         { sender: 'bot', message: 'Nice!' },
       ]);
       // Reset the input message field
-      setproperties(['a', 'b', 'c']);
+      setproperties(['2gDwlIim3Uw', '2gDwlIim3Uw', '2gDwlIim3Uw']);
       setInputMessage('');
     }
   };
