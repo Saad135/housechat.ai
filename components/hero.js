@@ -10,6 +10,8 @@ export default function Hero({
   inputMessage,
   setInputMessage,
   handleSendMessage,
+  isUsingAI,
+  setIsUsingAI,
 }) {
   return (
     <div className="flex overflow-hidden flex-grow">
@@ -17,7 +19,11 @@ export default function Hero({
         properties={properties}
         setselectedProperty={setselectedProperty}
       />
-      <PropertyDetails selectedProperty={selectedProperty} />
+      <PropertyDetails
+        selectedProperty={selectedProperty}
+        isUsingAI={isUsingAI}
+        setIsUsingAI={setIsUsingAI}
+      />
       <div className={`flex-grow ${selectedProperty ? 'max-w-[30%]' : ''}`}>
         <ChatBox
           messages={messages}

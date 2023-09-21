@@ -18,16 +18,27 @@ export default function Home() {
   // Selected property that will be shown on detailed view
   const [selectedProperty, setselectedProperty] = useState(null);
 
+  //Property that determines if the chat feature is using AI or not
+  const [isUsingAI, setIsUsingAI] = useState(true);
+
   // Function to handle the sending of messages when the user presses the Enter key
   const handleSendMessage = (e) => {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
     if (e.key === 'Enter' && inputMessage) {
       // Add the user's message and a bot response to the messages array
-      setMessages([
-        ...messages,
-        { sender: 'user', message: inputMessage },
-        { sender: 'bot', message: 'Nice!' },
-      ]);
+      if (isUsingAI) {
+        setMessages([
+          ...messages,
+          { sender: 'user', message: inputMessage },
+          { sender: 'bot', message: 'AI response' },
+        ]);
+      } else {
+        setMessages([
+          ...messages,
+          { sender: 'user', message: inputMessage },
+          { sender: 'bot', message: 'Non-AI response' },
+        ]);
+      }
       setproperties([
         {
           imgID: '2gDwlIim3Uw',
@@ -60,6 +71,8 @@ export default function Home() {
       inputMessage={inputMessage}
       setInputMessage={setInputMessage}
       handleSendMessage={handleSendMessage}
+      isUsingAI={isUsingAI}
+      setIsUsingAI={setIsUsingAI}
     />
   );
 }
