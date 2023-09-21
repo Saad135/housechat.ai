@@ -8,7 +8,7 @@ export default function ChatBox({
   // Render the main div and its contents, including the messages and input field
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen text-gray-800 ${
+      className={`flex flex-col items-center justify-center h-full text-gray-800 ${
         messages.length == 0 ? 'p-10' : selectedProperty != null ? '' : 'py-10'
       }`}
     >

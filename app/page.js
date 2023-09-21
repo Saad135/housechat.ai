@@ -5,6 +5,8 @@ import ChatBox from './chatbox';
 import Link from 'next/link';
 import PropertyDetails from './property-details';
 import PropertyList from './property-list';
+import Hero from './hero';
+import TopBar from './top-bar';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array
@@ -37,21 +39,17 @@ export default function Home() {
 
   // Render the main div and its contents, including the messages and input field
   return (
-    <div className="flex">
-      <PropertyList
+    <div className="min-h-screen flex flex-col">
+      <TopBar />
+      <Hero
         properties={properties}
+        selectedProperty={selectedProperty}
         setselectedProperty={setselectedProperty}
+        messages={messages}
+        inputMessage={inputMessage}
+        setInputMessage={setInputMessage}
+        handleSendMessage={handleSendMessage}
       />
-      <PropertyDetails selectedProperty={selectedProperty} />
-      <div className={`flex-grow ${selectedProperty ? 'max-w-[30%]' : ''}`}>
-        <ChatBox
-          messages={messages}
-          inputMessage={inputMessage}
-          setInputMessage={setInputMessage}
-          handleSendMessage={handleSendMessage}
-          selectedProperty={selectedProperty}
-        />
-      </div>
     </div>
   );
 }
