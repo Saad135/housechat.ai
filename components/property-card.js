@@ -1,8 +1,11 @@
 import Image from 'next/image';
 
-export default function PropertyCard({ property }) {
+export default function PropertyCard({ property, setselectedProperty }) {
   return (
-    <div className="m-4 overflow-hidden bg-white h-48 shadow-sm rounded-lg">
+    <div
+      className="m-4 overflow-hidden cursor-pointer bg-white h-48 shadow-sm rounded-lg"
+      onClick={() => setselectedProperty({ a: property })}
+    >
       <div className="h-3/5 relative">
         <Image
           src={`http://source.unsplash.com/${property}`}
