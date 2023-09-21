@@ -23,7 +23,7 @@ export default function PropertyDetails({
           onClick={() => {
             setIsUsingAI(!isUsingAI);
           }}
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm"
         >
           Get in touch
         </button>
