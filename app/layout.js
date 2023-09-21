@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-100">
-        <div className="min-h-screen flex flex-col">
+        <div className="h-screen flex flex-col">
           <TopBar />
           {children}
         </div>

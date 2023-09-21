@@ -12,7 +12,7 @@ export default function Hero({
   handleSendMessage,
 }) {
   return (
-    <div className="flex flex-grow">
+    <div className="flex overflow-hidden flex-grow">
       <PropertyList
         properties={properties}
         setselectedProperty={setselectedProperty}
