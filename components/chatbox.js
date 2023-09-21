@@ -9,7 +9,11 @@ export default function ChatBox({
   return (
     <div
       className={`flex flex-col items-center justify-center h-full text-gray-800 ${
-        messages.length == 0 ? 'p-10' : selectedProperty != null ? '' : 'py-8'
+        messages.length == 0
+          ? 'p-10'
+          : selectedProperty != null
+          ? ''
+          : 'py-8 px-10'
       }`}
     >
       <div
