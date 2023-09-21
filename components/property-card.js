@@ -4,11 +4,11 @@ export default function PropertyCard({ property, setselectedProperty }) {
   return (
     <div
       className="m-4 cursor-pointer bg-white shadow-sm rounded-lg"
-      onClick={() => setselectedProperty({ a: property })}
+      onClick={() => setselectedProperty(property)}
     >
       <div className="h-32 rounded-t-lg relative overflow-hidden">
         <Image
-          src={`http://source.unsplash.com/${property}`}
+          src={`http://source.unsplash.com/${property.imgID}`}
           alt="A house"
           fill
           objectFit="cover"
@@ -16,9 +16,9 @@ export default function PropertyCard({ property, setselectedProperty }) {
       </div>
       <div className="px-4 py-4">
         <p className="text-blue-700 pb-2 text-xl font-medium leading-5">
-          Rockford Drive
+          {property.title}
         </p>
-        <p className="text-blue-500 tracking-tight">65, Big Street, FL.</p>
+        <p className="text-blue-500 tracking-tight">{property.address}</p>
       </div>
     </div>
   );

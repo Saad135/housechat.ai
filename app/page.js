@@ -28,7 +28,24 @@ export default function Home() {
         { sender: 'bot', message: 'Nice!' },
       ]);
       // Reset the input message field
-      setproperties(['2gDwlIim3Uw', '2gDwlIim3Uw', '2gDwlIim3Uw']);
+      // setproperties(['2gDwlIim3Uw', 'MAnVoJlQUvg', 'XGvwt544g8k']);
+      setproperties([
+        {
+          imgID: '2gDwlIim3Uw',
+          title: 'Rockford Drive',
+          address: '65, Big Street, FL',
+        },
+        {
+          imgID: 'MAnVoJlQUvg',
+          title: 'Pickford Drive',
+          address: '65, Little Street, FL',
+        },
+        {
+          imgID: 'XGvwt544g8k',
+          title: 'Luxury complex',
+          address: '65, Rich Street, FL',
+        },
+      ]);
       setInputMessage('');
     }
   };
