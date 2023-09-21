@@ -4,8 +4,30 @@ export default function ChatBox({
   setInputMessage,
   handleSendMessage,
   selectedProperty,
+  isUsingAI,
+  setMessages,
 }) {
   // Render the main div and its contents, including the messages and input field
+  const runContactFlow = (e) => {
+    // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
+    if (e.key === 'Enter' && inputMessage) {
+      // Add the user's message and a bot response to the messages array
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'user', message: inputMessage },
+      ]);
+      // TODO: Integrate seding email feature using apigw, ses and lambda
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          sender: 'bot',
+          message:
+            'Thank you. We have notified our team and they will contact you through your provided email as soon as possible.',
+        },
+      ]);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col items-center justify-center h-full text-gray-800 ${
@@ -64,7 +86,7 @@ export default function ChatBox({
             // Update the inputMessage state variable when the input field value changes
             onChange={(e) => setInputMessage(e.target.value)}
             // Call the handleSendMessage function when the user presses a key in the input field
-            onKeyDown={handleSendMessage}
+            onKeyDown={isUsingAI ? handleSendMessage : runContactFlow}
           />
         </div>
       </div>

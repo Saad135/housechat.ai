@@ -77,6 +77,7 @@ export default function Home() {
       handleSendMessage={handleSendMessage}
       isUsingAI={isUsingAI}
       setIsUsingAI={setIsUsingAI}
+      setMessages={setMessages}
     />
   );
 }

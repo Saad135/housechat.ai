@@ -4,6 +4,7 @@ export default function PropertyDetails({
   selectedProperty,
   isUsingAI,
   setIsUsingAI,
+  setMessages,
 }) {
   return !selectedProperty ? (
     <div hidden={!selectedProperty} className="flex-grow overflow-auto"></div>
@@ -22,6 +23,10 @@ export default function PropertyDetails({
         <button
           onClick={() => {
             setIsUsingAI(!isUsingAI);
+            setMessages((prevMessages) => [
+              ...prevMessages,
+              { sender: 'bot', message: 'Please Provide us with your email.' },
+            ]);
           }}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm"
         >
