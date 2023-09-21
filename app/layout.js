@@ -1,5 +1,6 @@
 import './globals.css';
 import Head from 'next/head';
+import TopBar from './top-bar';
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +20,12 @@ export default function RootLayout({ children }) {
           src="https://gradio.s3-us-west-2.amazonaws.com/{3.44.3}/gradio.js"
         ></script>
       </Head>
-      <body className="bg-gray-100">{children}</body>
+      <body className="bg-gray-100">
+        <div className="min-h-screen flex flex-col">
+          <TopBar />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

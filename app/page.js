@@ -39,17 +39,14 @@ export default function Home() {
 
   // Render the main div and its contents, including the messages and input field
   return (
-    <div className="min-h-screen flex flex-col">
-      <TopBar />
-      <Hero
-        properties={properties}
-        selectedProperty={selectedProperty}
-        setselectedProperty={setselectedProperty}
-        messages={messages}
-        inputMessage={inputMessage}
-        setInputMessage={setInputMessage}
-        handleSendMessage={handleSendMessage}
-      />
-    </div>
+    <Hero
+      properties={properties}
+      selectedProperty={selectedProperty}
+      setselectedProperty={setselectedProperty}
+      messages={messages}
+      inputMessage={inputMessage}
+      setInputMessage={setInputMessage}
+      handleSendMessage={handleSendMessage}
+    />
   );
 }
