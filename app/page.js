@@ -27,8 +27,6 @@ export default function Home() {
         { sender: 'user', message: inputMessage },
         { sender: 'bot', message: 'Nice!' },
       ]);
-      // Reset the input message field
-      // setproperties(['2gDwlIim3Uw', 'MAnVoJlQUvg', 'XGvwt544g8k']);
       setproperties([
         {
           imgID: '2gDwlIim3Uw',
@@ -46,6 +44,7 @@ export default function Home() {
           address: '65, Rich Street, FL',
         },
       ]);
+      // Reset the input message field
       setInputMessage('');
     }
   };
