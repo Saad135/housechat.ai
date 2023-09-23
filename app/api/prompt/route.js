@@ -6,6 +6,13 @@ const pinecone = new Pinecone({
   environment: process.env.PINECONE_ENV,
 });
 
+const INDEX_NAME = 'poc-v1';
+// index = pinecone.GRPCIndex(INDEX_NAME);
+const MODEL_NAME = 'text-embedding-ada-002';
+
 export async function GET(req) {
+  const indexes = await pinecone.listIndexes();
+  console.log(indexes);
+
   return NextResponse.json({ a: 'hi' });
 }
