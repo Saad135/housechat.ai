@@ -10,6 +10,9 @@ const openai = new OpenAI({
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
 
+//TODO: get properties from pinecone
+// TODO: construct prompt and edit messages
+
 export async function POST(req) {
   // Extract the `messages` from the body of the request
   const { messages } = await req.json();
@@ -26,6 +29,6 @@ export async function POST(req) {
   return new StreamingTextResponse(stream);
 }
 
-export async function GET(req, res) {
+export async function GET(req) {
   return NextResponse.json({ a: 'hi' });
 }
