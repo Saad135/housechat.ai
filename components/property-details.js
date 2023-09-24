@@ -15,7 +15,10 @@ export default function PropertyDetails({
     ]);
   };
 
-  const propertyKeys = Object.keys(selectedProperty);
+  const propertyKeys =
+    selectedProperty && selectedProperty.length != 0
+      ? Object.keys(selectedProperty)
+      : [];
   // console.log(propertyKeys);
   // propertyKeys.map((propertyKey, idx) => {
   //   if (
@@ -29,7 +32,7 @@ export default function PropertyDetails({
   return !selectedProperty ? (
     <div hidden={!selectedProperty} className="flex-grow overflow-auto"></div>
   ) : (
-    <div className="h-full flex-grow overflow-auto">
+    <div className="h-full max-w-[50%] flex-grow overflow-auto">
       <div className="h-2/5 relative">
         <Image
           src={`http://source.unsplash.com/MAnVoJlQUvg`}
