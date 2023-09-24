@@ -34,15 +34,18 @@ export default function Home() {
       if (isUsingAI) {
         let textResponse = '';
         const textDecoder = new TextDecoder();
-        const botResponse = await fetch('http://localhost:3000/api/chat', {
-          method: 'POST',
-          body: JSON.stringify({
-            messages: [
-              { role: 'system', content: 'You are a helpful assistant.' },
-              { role: 'user', content: inputMessage },
-            ],
-          }),
-        });
+        const botResponse = await fetch(
+          process.env.SERVER_BASE_URL + '/api/chat',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              messages: [
+                { role: 'system', content: 'You are a helpful assistant.' },
+                { role: 'user', content: inputMessage },
+              ],
+            }),
+          }
+        );
         const botResponseReader = botResponse.body.getReader();
         while (true) {
           const { done, value } = await botResponseReader.read();
