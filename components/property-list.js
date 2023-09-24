@@ -8,7 +8,7 @@ export default function PropertyList({
   return (
     <div
       hidden={properties.length == 0}
-      className="py-4 overflow-auto px-2 flex-grow max-w-[25%]"
+      className="py-4 overflow-auto px-2 flex-grow max-w-[20%]"
     >
       {properties.map((property, idx) => (
         <PropertyCard
