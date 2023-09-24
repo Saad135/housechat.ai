@@ -4,6 +4,7 @@ import Hero from '@/components/hero';
 import PropertyCard from '@/components/property-card';
 import PropertyDetails from '@/components/property-details';
 import { useEffect, useState } from 'react';
+import 'dotenv/config';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array
@@ -25,27 +26,63 @@ export default function Home() {
   const handleSendMessage = async (e) => {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
     if (e.key === 'Enter' && inputMessage) {
-      // Add the user's message and a bot response to the messages array
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'user', message: inputMessage },
-      ]);
+      try {
+        // let prompt = ""
+        // Add the user's message and a bot response to the messages array
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: 'user', message: inputMessage },
+          { sender: 'bot', message: 'Typing...' },
+        ]);
+        // const inputMessage = inputMessage;
 
-      if (isUsingAI) {
+        // // Reset the input message field
+        // setInputMessage('');
+
         let textResponse = '';
         const textDecoder = new TextDecoder();
+
+        const promptResponse = await fetch(
+          process.env.NEXT_PUBLIC_SERVER_BASE_URL + '/api/prompt',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              question: inputMessage,
+            }),
+          }
+        );
+        if (!promptResponse.ok) {
+          throw new Error(
+            'There was an error fetching the prompt. Status: ' +
+              promptResponse.status
+          );
+        }
+        const { prompt, propertylist } = await promptResponse.json();
+        // console.log(prompt);
+        // console.log(propertylist);
+
         const botResponse = await fetch(
-          process.env.SERVER_BASE_URL + '/api/chat',
+          process.env.NEXT_PUBLIC_SERVER_BASE_URL + '/api/chat',
           {
             method: 'POST',
             body: JSON.stringify({
               messages: [
-                { role: 'system', content: 'You are a helpful assistant.' },
-                { role: 'user', content: inputMessage },
+                {
+                  role: 'system',
+                  content:
+                    'You are a real estate broker trying to find the best property for your customer. Always phrase your answer in a presentable manner.',
+                },
+                { role: 'user', content: prompt },
               ],
             }),
           }
         );
+        if (!botResponse.ok) {
+          throw new Error(
+            'There was an error fetching the bot response. Status: ' +
+              botResponse.status
+          );
+        }
         const botResponseReader = botResponse.body.getReader();
         while (true) {
           const { done, value } = await botResponseReader.read();
@@ -67,31 +104,29 @@ export default function Home() {
                 ]
           );
         }
-      } else {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: 'bot', message: 'non AI' },
+
+        setproperties([
+          {
+            imgID: '2gDwlIim3Uw',
+            title: 'Rockford Drive',
+            address: '65, Big Street, FL',
+          },
+          {
+            imgID: 'MAnVoJlQUvg',
+            title: 'Pickford Drive',
+            address: '65, Little Street, FL',
+          },
+          {
+            imgID: 'XGvwt544g8k',
+            title: 'Luxury complex',
+            address: '65, Rich Street, FL',
+          },
         ]);
+        // Reset the input message field
+      } catch (error) {
+        console.error('There has been a problem with your operation:', error);
       }
 
-      setproperties([
-        {
-          imgID: '2gDwlIim3Uw',
-          title: 'Rockford Drive',
-          address: '65, Big Street, FL',
-        },
-        {
-          imgID: 'MAnVoJlQUvg',
-          title: 'Pickford Drive',
-          address: '65, Little Street, FL',
-        },
-        {
-          imgID: 'XGvwt544g8k',
-          title: 'Luxury complex',
-          address: '65, Rich Street, FL',
-        },
-      ]);
-      // Reset the input message field
       setInputMessage('');
     }
   };
