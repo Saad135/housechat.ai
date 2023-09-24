@@ -4,6 +4,7 @@ export default function PropertyList({
   properties,
   setselectedProperty,
   imgID,
+  setIsDetailsViewActive,
 }) {
   return (
     <div
@@ -16,6 +17,7 @@ export default function PropertyList({
           property={property}
           setselectedProperty={setselectedProperty}
           imgID={imgID}
+          setIsDetailsViewActive={setIsDetailsViewActive}
         />
       ))}
     </div>

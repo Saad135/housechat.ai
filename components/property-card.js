@@ -1,6 +1,15 @@
 import Image from 'next/image';
 
-export default function PropertyCard({ property, setselectedProperty, imgID }) {
+export default function PropertyCard({
+  property,
+  setselectedProperty,
+  imgID,
+  setIsDetailsViewActive,
+}) {
+  const handleClick = () => {
+    setselectedProperty(property);
+    setIsDetailsViewActive(true);
+  };
   return (
     <div
       className="m-4 cursor-pointer bg-white shadow-sm rounded-lg"

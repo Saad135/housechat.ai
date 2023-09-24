@@ -13,6 +13,7 @@ export default function Hero({
   isUsingAI,
   setIsUsingAI,
   setMessages,
+  setIsDetailsViewActive,
 }) {
   const imgIDList = ['2gDwlIim3Uw', 'MAnVoJlQUvg', 'XGvwt544g8k'];
 
@@ -22,6 +23,7 @@ export default function Hero({
         properties={properties}
         setselectedProperty={setselectedProperty}
         imgID={imgIDList[Math.floor(Math.random() * imgIDList.length)]}
+        setIsDetailsViewActive={setIsDetailsViewActive}
       />
       <PropertyDetails
         selectedProperty={selectedProperty}

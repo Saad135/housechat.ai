@@ -22,6 +22,9 @@ export default function Home() {
   //Property that determines if the chat feature is using AI or not
   const [isUsingAI, setIsUsingAI] = useState(true);
 
+  //Property that tracks if details view is active or not
+  const [isDetailsViewActive, setIsDetailsViewActive] = useState(false);
+
   // Function to handle the sending of messages when the user presses the Enter key
   const handleSendMessage = async (e) => {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
@@ -128,6 +131,7 @@ export default function Home() {
       isUsingAI={isUsingAI}
       setIsUsingAI={setIsUsingAI}
       setMessages={setMessages}
+      setIsDetailsViewActive={setIsDetailsViewActive}
     />
   );
 }
