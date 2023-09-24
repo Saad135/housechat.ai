@@ -1,6 +1,29 @@
 {
-  "messages": [
-    { "role": "system", "content": "You are a helpful assistant." },
-    { "role": "user", "content": "Hello!" }
+  "prompt": "Answer the question as truthfully as possible using the provided context, and if the answer is not contained within the text below, say 'Sorry, I can't seem to find anything.'\n\nContext:\n\n* ContingentDate: 2021-10-28\nFlooring: Carpet,Tile\nHumanModifiedYN: false\nPublicRemarks: Beautifully well maintained home, Fresh bright interior with lots of natural light. Spacious bedrooms with plenty of closet space. Wonderful family neighborhood.\nStreetDirPrefix: None\nTaxLegalDescription: NEWHAVEN 7A AT ABACOA LT 143\n\n\n* ContingentDate: 2022-03-04\nFlooring: None\nHumanModifiedYN: true\nPublicRemarks: Great investment opportunity or lot to build your home!\nStreetDirPrefix: SE\nTaxLegalDescription: PORT MALABAR UNIT 25 LOT 8 BLK 1296\n\n\n* ContingentDate: 2021-10-21\nFlooring: Carpet,CeramicTile\nHumanModifiedYN: false\nPublicRemarks: 3 MONTH RENTAL 1/1/22 T0 3/31/22 WITH TRANQUIL  WATER VIEW!  2 BEDROOMS & 2 FULL BATHS 2 SCREENED IN PORCHES, 1 IN FRONT & 1 IN BACK OVERLOOKING THE WATER  SHARED DRIVEWAY. MANY ACTIVITIES SUCH AS PICKLE BALL, TENNIS, SHUFFLEBOARD, BOCCE BALL, HORSESHOES, YOGA, ARTS & CRAFTS & BILLARDS! WITHIN 5 MILES OF DOWNTOWN DELRAY & THE BEACH NO CHILDREN UNDER 40!!!\nStreetDirPrefix: None\nTaxLegalDescription: DELRAY VILLAS PL 3 LT 12 BLK 3\n\n\n\n Q: hi\n A:",
+  "propertylist": [
+    {
+      "ContingentDate": "2021-10-28",
+      "Flooring": "Carpet,Tile",
+      "HumanModifiedYN": false,
+      "PublicRemarks": "Beautifully well maintained home, Fresh bright interior with lots of natural light. Spacious bedrooms with plenty of closet space. Wonderful family neighborhood.",
+      "StreetDirPrefix": "None",
+      "TaxLegalDescription": "NEWHAVEN 7A AT ABACOA LT 143"
+    },
+    {
+      "ContingentDate": "2022-03-04",
+      "Flooring": "None",
+      "HumanModifiedYN": true,
+      "PublicRemarks": "Great investment opportunity or lot to build your home!",
+      "StreetDirPrefix": "SE",
+      "TaxLegalDescription": "PORT MALABAR UNIT 25 LOT 8 BLK 1296"
+    },
+    {
+      "ContingentDate": "2021-10-21",
+      "Flooring": "Carpet,CeramicTile",
+      "HumanModifiedYN": false,
+      "PublicRemarks": "3 MONTH RENTAL 1/1/22 T0 3/31/22 WITH TRANQUIL  WATER VIEW!  2 BEDROOMS & 2 FULL BATHS 2 SCREENED IN PORCHES, 1 IN FRONT & 1 IN BACK OVERLOOKING THE WATER  SHARED DRIVEWAY. MANY ACTIVITIES SUCH AS PICKLE BALL, TENNIS, SHUFFLEBOARD, BOCCE BALL, HORSESHOES, YOGA, ARTS & CRAFTS & BILLARDS! WITHIN 5 MILES OF DOWNTOWN DELRAY & THE BEACH NO CHILDREN UNDER 40!!!",
+      "StreetDirPrefix": "None",
+      "TaxLegalDescription": "DELRAY VILLAS PL 3 LT 12 BLK 3"
+    }
   ]
 }
