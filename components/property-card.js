@@ -21,7 +21,8 @@ export default function PropertyCard({ property, setselectedProperty, imgID }) {
             .join(' ')}
         </p>
         <p className="text-blue-500 tracking-tight">
-          {property.TaxLegalDescription}
+          {property.TaxLegalDescription.charAt(0) +
+            property.TaxLegalDescription.slice(1).toLowerCase()}
         </p>
       </div>
     </div>
