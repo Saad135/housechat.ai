@@ -1,6 +1,10 @@
 import PropertyCard from './property-card';
 
-export default function PropertyList({ properties, setselectedProperty }) {
+export default function PropertyList({
+  properties,
+  setselectedProperty,
+  imgID,
+}) {
   return (
     <div
       hidden={properties.length == 0}
@@ -11,6 +15,7 @@ export default function PropertyList({ properties, setselectedProperty }) {
           key={idx}
           property={property}
           setselectedProperty={setselectedProperty}
+          imgID={imgID}
         />
       ))}
     </div>

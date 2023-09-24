@@ -5,6 +5,7 @@ export default function PropertyDetails({
   isUsingAI,
   setIsUsingAI,
   setMessages,
+  imgID,
 }) {
   const startContact = () => {
     setIsUsingAI((prevValue) => !prevValue);
@@ -14,13 +15,24 @@ export default function PropertyDetails({
     ]);
   };
 
+  const propertyKeys = Object.keys(selectedProperty);
+  // console.log(propertyKeys);
+  // propertyKeys.map((propertyKey, idx) => {
+  //   if (
+  //     propertyKey != 'PublicRemarks' ||
+  //     propertyKey != 'TaxLegalDescription'
+  //   ) {
+  //     console.log(propertyKey);
+  //   }
+  // });
+
   return !selectedProperty ? (
     <div hidden={!selectedProperty} className="flex-grow overflow-auto"></div>
   ) : (
     <div className="h-full flex-grow overflow-auto">
       <div className="h-2/5 relative">
         <Image
-          src={`http://source.unsplash.com/${selectedProperty.imgID}`}
+          src={`http://source.unsplash.com/MAnVoJlQUvg`}
           alt="A house"
           fill
           objectFit="cover"
@@ -42,8 +54,32 @@ export default function PropertyDetails({
           Property Details
         </p>
         <div className="my-4">
-          <p>{selectedProperty.title}</p>
-          <p>{selectedProperty.address}</p>
+          <p className="mb-4">
+            <span className="text-lg font-medium underline">Title: </span>
+            {selectedProperty.PublicRemarks.split(' ')
+              .slice(
+                0,
+                selectedProperty.PublicRemarks.split(' ').length >= 4 ? 3 : -1
+              )
+              .join(' ')}
+          </p>
+          <p className="text-lg font-medium underline mb-2">Description</p>
+          <p className="mb-4">{selectedProperty.PublicRemarks}</p>
+          <p className="mb-4">
+            <span className="text-lg font-medium underline">Address: </span>
+            {selectedProperty.TaxLegalDescription}
+          </p>
+          <p className="text-lg font-medium underline mb-2">Others</p>
+          {propertyKeys.map((propertyKey, idx) =>
+            propertyKey != 'PublicRemarks' &&
+            propertyKey != 'TaxLegalDescription' ? (
+              <p key={idx}>
+                {propertyKey}: {selectedProperty[propertyKey]}
+              </p>
+            ) : (
+              <p key={idx} hidden></p>
+            )
+          )}
         </div>
       </div>
     </div>

@@ -105,23 +105,7 @@ export default function Home() {
           );
         }
 
-        setproperties([
-          {
-            imgID: '2gDwlIim3Uw',
-            title: 'Rockford Drive',
-            address: '65, Big Street, FL',
-          },
-          {
-            imgID: 'MAnVoJlQUvg',
-            title: 'Pickford Drive',
-            address: '65, Little Street, FL',
-          },
-          {
-            imgID: 'XGvwt544g8k',
-            title: 'Luxury complex',
-            address: '65, Rich Street, FL',
-          },
-        ]);
+        setproperties(propertylist);
         // Reset the input message field
       } catch (error) {
         console.error('There has been a problem with your operation:', error);

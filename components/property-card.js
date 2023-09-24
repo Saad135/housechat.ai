@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function PropertyCard({ property, setselectedProperty }) {
+export default function PropertyCard({ property, setselectedProperty, imgID }) {
   return (
     <div
       className="m-4 cursor-pointer bg-white shadow-sm rounded-lg"
@@ -8,7 +8,7 @@ export default function PropertyCard({ property, setselectedProperty }) {
     >
       <div className="h-32 rounded-t-lg relative overflow-hidden">
         <Image
-          src={`http://source.unsplash.com/${property.imgID}`}
+          src={`http://source.unsplash.com/MAnVoJlQUvg`}
           alt="A house"
           fill
           objectFit="cover"
@@ -16,9 +16,13 @@ export default function PropertyCard({ property, setselectedProperty }) {
       </div>
       <div className="px-4 py-4">
         <p className="text-blue-700 pb-2 text-xl font-medium leading-5">
-          {property.title}
+          {property.PublicRemarks.split(' ')
+            .slice(0, property.PublicRemarks.split(' ').length >= 4 ? 3 : -1)
+            .join(' ')}
         </p>
-        <p className="text-blue-500 tracking-tight">{property.address}</p>
+        <p className="text-blue-500 tracking-tight">
+          {property.TaxLegalDescription}
+        </p>
       </div>
     </div>
   );
