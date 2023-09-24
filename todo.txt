@@ -1,0 +1,3 @@
+TODO: get properties from pinecone
+TODO: construct prompt and edit messages
+TODO: Update UI chat messages to use markdown, See: https://github.com/vercel-labs/ai-chatbot/blob/main/components/chat-list.tsx
