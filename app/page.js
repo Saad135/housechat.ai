@@ -22,7 +22,7 @@ export default function Home() {
   const [isUsingAI, setIsUsingAI] = useState(true);
 
   // Function to handle the sending of messages when the user presses the Enter key
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     // Check if the pressed key is "Enter" and there is a non-empty message in inputMessage
     if (e.key === 'Enter' && inputMessage) {
       // Add the user's message and a bot response to the messages array
@@ -32,10 +32,38 @@ export default function Home() {
       ]);
 
       if (isUsingAI) {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: 'bot', message: 'AI' },
-        ]);
+        let textResponse = '';
+        const textDecoder = new TextDecoder();
+        const botResponse = await fetch('http://localhost:3000/api/chat', {
+          method: 'POST',
+          body: JSON.stringify({
+            messages: [
+              { role: 'system', content: 'You are a helpful assistant.' },
+              { role: 'user', content: inputMessage },
+            ],
+          }),
+        });
+        const botResponseReader = botResponse.body.getReader();
+        while (true) {
+          const { done, value } = await botResponseReader.read();
+          const text_chunk = textDecoder.decode(value, { stream: true });
+
+          if (done) {
+            break;
+          }
+
+          textResponse += text_chunk;
+          // console.log(textResponse);
+
+          setMessages((prevMessages) =>
+            prevMessages[prevMessages.length - 1].sender != 'bot'
+              ? [...prevMessages, { sender: 'bot', message: 'AI' }]
+              : [
+                  ...prevMessages.slice(0, -1),
+                  { sender: 'bot', message: textResponse },
+                ]
+          );
+        }
       } else {
         setMessages((prevMessages) => [
           ...prevMessages,
