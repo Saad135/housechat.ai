@@ -13,7 +13,7 @@ export default function PropertyCard({
   return (
     <div
       className="m-4 cursor-pointer bg-white shadow-sm rounded-lg"
-      onClick={() => setselectedProperty(property)}
+      onClick={handleClick}
     >
       <div className="h-32 rounded-t-lg relative overflow-hidden">
         <Image

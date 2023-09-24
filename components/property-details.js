@@ -69,7 +69,9 @@ export default function PropertyDetails({
           <p className="text-lg font-medium underline mb-2">Description</p>
           <p className="mb-4">{selectedProperty.PublicRemarks}</p>
           <p className="mb-4">
-            <span className="text-lg font-medium underline">Address: </span>
+            <span className="text-lg font-medium underline">
+              TaxLegalDescription:{' '}
+            </span>
             {selectedProperty.TaxLegalDescription}
           </p>
           <p className="text-lg font-medium underline mb-2">Others</p>
