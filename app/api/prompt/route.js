@@ -5,15 +5,12 @@ import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { constructPrompt, convertPropertyToContext } from '@/utils/utils';
 
 // IMPORTANT! Set the runtime to edge
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-// IMPORTANT! Set the runtime to edge
-// export const runtime = 'edge';
 
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
