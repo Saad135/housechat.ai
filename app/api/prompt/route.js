@@ -12,13 +12,14 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// IMPORTANT! Set the runtime to edge
+export const runtime = 'edge';
+
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
   environment: process.env.PINECONE_ENV,
 });
 await pinecone.listIndexes();
-// IMPORTANT! Set the runtime to edge
-// export const runtime = 'edge';
 
 const INDEX_NAME = 'poc-v2';
 const EMBEDDING_MODEL_NAME = 'text-embedding-ada-002';
