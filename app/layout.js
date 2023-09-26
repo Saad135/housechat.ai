@@ -1,6 +1,4 @@
-import TopBar from '@/components/top-bar';
 import './globals.css';
-import Head from 'next/head';
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -13,12 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100">
-        <div className="h-screen flex flex-col">
-          <TopBar />
-          {children}
-        </div>
-      </body>
+      <body className="bg-gray-100">{children}</body>
     </html>
   );
 }

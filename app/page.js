@@ -6,6 +6,7 @@ import PropertyDetails from '@/components/property-details';
 import { useEffect, useState } from 'react';
 import 'dotenv/config';
 import { constructPrompt, convertPropertyToContext } from '@/utils/utils';
+import TopBar from '@/components/top-bar';
 
 export default function Home() {
   // Declare a state variable called "messages" and initialize it with an empty array
@@ -205,20 +206,23 @@ export default function Home() {
 
   // Render the main div and its contents, including the messages and input field
   return (
-    <Hero
-      properties={properties}
-      selectedProperty={selectedProperty}
-      setselectedProperty={setselectedProperty}
-      messages={messages}
-      inputMessage={inputMessage}
-      setInputMessage={setInputMessage}
-      handleSendMessage={
-        !isDetailsViewActive ? handleSendMessage : handleDetailViewMessage
-      }
-      isUsingAI={isUsingAI}
-      setIsUsingAI={setIsUsingAI}
-      setMessages={setMessages}
-      setIsDetailsViewActive={setIsDetailsViewActive}
-    />
+    <div className="h-screen flex flex-col">
+      <TopBar />
+      <Hero
+        properties={properties}
+        selectedProperty={selectedProperty}
+        setselectedProperty={setselectedProperty}
+        messages={messages}
+        inputMessage={inputMessage}
+        setInputMessage={setInputMessage}
+        handleSendMessage={
+          !isDetailsViewActive ? handleSendMessage : handleDetailViewMessage
+        }
+        isUsingAI={isUsingAI}
+        setIsUsingAI={setIsUsingAI}
+        setMessages={setMessages}
+        setIsDetailsViewActive={setIsDetailsViewActive}
+      />
+    </div>
   );
 }
