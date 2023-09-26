@@ -27,6 +27,12 @@ export default function Home() {
   //Property that tracks if details view is active or not
   const [isDetailsViewActive, setIsDetailsViewActive] = useState(false);
 
+  // Topbar states
+  const [isListButtonOnTopbarActive, setIsListButtonOnTopbarActive] =
+    useState(false);
+  const [isChatButtonOnTopbarActive, setIsChatButtonOnTopbarActive] =
+    useState(false);
+
   //handle bot interaction for details view
   const handleDetailViewMessage = async (e) => {
     if (e.key === 'Enter' && inputMessage) {
@@ -207,7 +213,12 @@ export default function Home() {
   // Render the main div and its contents, including the messages and input field
   return (
     <div className="h-screen flex flex-col">
-      <TopBar />
+      <TopBar
+        isListButtonOnTopbarActive={isListButtonOnTopbarActive}
+        isChatButtonOnTopbarActive={isChatButtonOnTopbarActive}
+        setIsListButtonOnTopbarActive={setIsListButtonOnTopbarActive}
+        setIsChatButtonOnTopbarActive={setIsChatButtonOnTopbarActive}
+      />
       <Hero
         properties={properties}
         selectedProperty={selectedProperty}
