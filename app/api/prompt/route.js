@@ -13,7 +13,7 @@ const openai = new OpenAI({
 });
 
 // IMPORTANT! Set the runtime to edge
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY,
