@@ -1,5 +1,6 @@
 TODO: Update UI chat messages to use markdown, See: https://github.com/vercel-labs/ai-chatbot/blob/main/components/chat-list.tsx
 
 Limitations
+Still using 10 properties and few fields
 Ask question straight away; no social questions.
 ask questions like 2 rooms to 4 rooms; instead of 2-4 rooms
