@@ -14,6 +14,10 @@ export default function Hero({
   setIsUsingAI,
   setMessages,
   setIsDetailsViewActive,
+  isListButtonOnTopbarActive,
+  isChatButtonOnTopbarActive,
+  setIsListButtonOnTopbarActive,
+  setIsChatButtonOnTopbarActive,
 }) {
   const imgIDList = ['2gDwlIim3Uw', 'MAnVoJlQUvg', 'XGvwt544g8k'];
 
@@ -33,7 +37,11 @@ export default function Hero({
         setMessages={setMessages}
         imgID={imgIDList[Math.floor(Math.random() * imgIDList.length)]}
       />
-      <div className={`flex-grow ${selectedProperty ? 'max-w-[30%]' : ''}`}>
+      <div
+        className={`flex-grow ${isChatButtonOnTopbarActive ? '' : 'hidden'} ${
+          selectedProperty ? 'max-w-[30%]' : ''
+        }`}
+      >
         <ChatBox
           messages={messages}
           inputMessage={inputMessage}

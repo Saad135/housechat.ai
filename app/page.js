@@ -31,7 +31,7 @@ export default function Home() {
   const [isListButtonOnTopbarActive, setIsListButtonOnTopbarActive] =
     useState(false);
   const [isChatButtonOnTopbarActive, setIsChatButtonOnTopbarActive] =
-    useState(false);
+    useState(true);
 
   //handle bot interaction for details view
   const handleDetailViewMessage = async (e) => {
@@ -233,6 +233,10 @@ export default function Home() {
         setIsUsingAI={setIsUsingAI}
         setMessages={setMessages}
         setIsDetailsViewActive={setIsDetailsViewActive}
+        isListButtonOnTopbarActive={isListButtonOnTopbarActive}
+        isChatButtonOnTopbarActive={isChatButtonOnTopbarActive}
+        setIsListButtonOnTopbarActive={setIsListButtonOnTopbarActive}
+        setIsChatButtonOnTopbarActive={setIsChatButtonOnTopbarActive}
       />
     </div>
   );

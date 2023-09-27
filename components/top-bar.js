@@ -14,13 +14,10 @@ export default function TopBar({
           <button
             onClick={() => {
               setIsListButtonOnTopbarActive((prev) => {
-                if (prev) {
-                  return !prev;
-                } else {
-                  if (isChatButtonOnTopbarActive) {
-                    setIsChatButtonOnTopbarActive((prev) => !prev);
-                  }
+                if (!prev) {
+                  setIsChatButtonOnTopbarActive(false);
                 }
+                return !prev;
               });
             }}
           >
@@ -32,13 +29,10 @@ export default function TopBar({
           className="h-10 w-10 sm:hidden rounded-full hover:bg-blue-500"
           onClick={() => {
             setIsChatButtonOnTopbarActive((prev) => {
-              if (prev) {
-                return !prev;
-              } else {
-                if (isListButtonOnTopbarActive) {
-                  setIsListButtonOnTopbarActive((prev) => !prev);
-                }
+              if (!prev) {
+                setIsListButtonOnTopbarActive(false);
               }
+              return !prev;
             });
           }}
         >
