@@ -24,6 +24,7 @@ export default function Hero({
         setselectedProperty={setselectedProperty}
         imgID={imgIDList[Math.floor(Math.random() * imgIDList.length)]}
         setIsDetailsViewActive={setIsDetailsViewActive}
+        selectedProperty={selectedProperty}
       />
       <PropertyDetails
         selectedProperty={selectedProperty}

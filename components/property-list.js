@@ -5,11 +5,14 @@ export default function PropertyList({
   setselectedProperty,
   imgID,
   setIsDetailsViewActive,
+  selectedProperty,
 }) {
   return (
     <div
       hidden={properties.length == 0}
-      className="py-4 overflow-auto px-2 flex-grow max-w-[20%]"
+      className={`py-4 overflow-auto px-2 flex-grow ${
+        !selectedProperty ? 'max-w-[25%]' : 'max-w-[20%]'
+      }`}
     >
       {properties.map((property, idx) => (
         <PropertyCard
