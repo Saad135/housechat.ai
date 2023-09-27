@@ -127,7 +127,7 @@ export default function Home() {
         setMessages((prevMessages) => [
           ...prevMessages,
           { sender: 'user', message: inputMessage },
-          { sender: 'bot', message: 'Typing...' },
+          { sender: 'bot', message: 'Fetching properties...' },
         ]);
         // const inputMessage = inputMessage;
 
@@ -155,6 +155,14 @@ export default function Home() {
         const { prompt, propertylist } = await promptResponse.json();
         // console.log(prompt);
         // console.log(propertylist);
+        setMessages((prevMessages) =>
+          prevMessages[prevMessages.length - 1].sender != 'bot'
+            ? [...prevMessages, { sender: 'bot', message: 'AI' }]
+            : [
+                ...prevMessages.slice(0, -1),
+                { sender: 'bot', message: 'Typing response...' },
+              ]
+        );
 
         const botResponse = await fetch(
           process.env.NEXT_PUBLIC_SERVER_BASE_URL + '/api/chat',
