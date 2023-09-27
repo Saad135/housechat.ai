@@ -29,6 +29,9 @@ export default function Hero({
         imgID={imgIDList[Math.floor(Math.random() * imgIDList.length)]}
         setIsDetailsViewActive={setIsDetailsViewActive}
         selectedProperty={selectedProperty}
+        isListButtonOnTopbarActive={isListButtonOnTopbarActive}
+        setIsListButtonOnTopbarActive={setIsListButtonOnTopbarActive}
+        setIsChatButtonOnTopbarActive={setIsChatButtonOnTopbarActive}
       />
       <PropertyDetails
         selectedProperty={selectedProperty}
@@ -36,11 +39,15 @@ export default function Hero({
         setIsUsingAI={setIsUsingAI}
         setMessages={setMessages}
         imgID={imgIDList[Math.floor(Math.random() * imgIDList.length)]}
+        isListButtonOnTopbarActive={isListButtonOnTopbarActive}
+        isChatButtonOnTopbarActive={isChatButtonOnTopbarActive}
+        setIsListButtonOnTopbarActive={setIsListButtonOnTopbarActive}
+        setIsChatButtonOnTopbarActive={setIsChatButtonOnTopbarActive}
       />
       <div
-        className={`flex-grow ${isChatButtonOnTopbarActive ? '' : 'hidden'} ${
-          selectedProperty ? 'max-w-[30%]' : ''
-        }`}
+        className={`flex-grow ${
+          isChatButtonOnTopbarActive ? '' : 'hidden sm:block'
+        } ${selectedProperty ? 'max-w-full sm:max-w-[30%]' : ''}`}
       >
         <ChatBox
           messages={messages}

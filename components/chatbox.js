@@ -26,7 +26,7 @@ export default function ChatBox({
             'Thank you. We have notified our team and they will contact you through your provided email as soon as possible.',
         },
       ]);
-      setIsUsingAI((prevValue) => !prevValue);
+      setIsUsingAI(true);
       // Reset the input message field
       setInputMessage('');
     }

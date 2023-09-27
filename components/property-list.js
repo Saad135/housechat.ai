@@ -6,12 +6,18 @@ export default function PropertyList({
   imgID,
   setIsDetailsViewActive,
   selectedProperty,
+  isListButtonOnTopbarActive,
+  setIsListButtonOnTopbarActive,
+  setIsChatButtonOnTopbarActive,
 }) {
   return (
     <div
-      hidden={properties.length == 0}
-      className={`py-4 overflow-auto px-2 flex-grow ${
-        !selectedProperty ? 'max-w-[25%]' : 'max-w-[20%]'
+      className={`py-4 ${
+        properties.length == 0
+          ? 'hidden'
+          : `${isListButtonOnTopbarActive ? '' : 'hidden'} sm:block`
+      } overflow-auto px-2 flex-grow w-full ${
+        !selectedProperty ? 'sm:max-w-[25%]' : 'sm:max-w-[20%]'
       }`}
     >
       {properties.map((property, idx) => (
@@ -21,6 +27,8 @@ export default function PropertyList({
           setselectedProperty={setselectedProperty}
           imgID={imgID}
           setIsDetailsViewActive={setIsDetailsViewActive}
+          setIsListButtonOnTopbarActive={setIsListButtonOnTopbarActive}
+          setIsChatButtonOnTopbarActive={setIsChatButtonOnTopbarActive}
         />
       ))}
     </div>

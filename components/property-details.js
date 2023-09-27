@@ -6,13 +6,19 @@ export default function PropertyDetails({
   setIsUsingAI,
   setMessages,
   imgID,
+  isListButtonOnTopbarActive,
+  isChatButtonOnTopbarActive,
+  setIsListButtonOnTopbarActive,
+  setIsChatButtonOnTopbarActive,
 }) {
   const startContact = () => {
-    setIsUsingAI((prevValue) => !prevValue);
+    setIsUsingAI(false);
     setMessages((prevMessages) => [
       ...prevMessages,
       { sender: 'bot', message: 'Please Provide us with your email.' },
     ]);
+    setIsChatButtonOnTopbarActive(true);
+    setIsListButtonOnTopbarActive(false);
   };
 
   const propertyKeys =
@@ -32,7 +38,11 @@ export default function PropertyDetails({
   return !selectedProperty ? (
     <div hidden={!selectedProperty} className="flex-grow overflow-auto"></div>
   ) : (
-    <div className="h-full max-w-[50%] flex-grow overflow-auto">
+    <div
+      className={`h-full ${
+        isListButtonOnTopbarActive || isChatButtonOnTopbarActive ? 'hidden' : ''
+      } sm:block max-w-full sm:max-w-[50%] flex-grow overflow-auto`}
+    >
       <div className="h-2/5 relative">
         <Image
           src={`http://source.unsplash.com/MAnVoJlQUvg`}

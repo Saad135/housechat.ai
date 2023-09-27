@@ -1,3 +1,5 @@
-TODO: get properties from pinecone
-TODO: construct prompt and edit messages
 TODO: Update UI chat messages to use markdown, See: https://github.com/vercel-labs/ai-chatbot/blob/main/components/chat-list.tsx
+
+Limitations
+Ask question straight away; no social questions.
+ask questions like 2 rooms to 4 rooms; instead of 2-4 rooms

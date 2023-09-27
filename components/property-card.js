@@ -5,10 +5,14 @@ export default function PropertyCard({
   setselectedProperty,
   imgID,
   setIsDetailsViewActive,
+  setIsListButtonOnTopbarActive,
+  setIsChatButtonOnTopbarActive,
 }) {
   const handleClick = () => {
     setselectedProperty(property);
     setIsDetailsViewActive(true);
+    setIsChatButtonOnTopbarActive(false);
+    setIsListButtonOnTopbarActive(false);
   };
   return (
     <div
